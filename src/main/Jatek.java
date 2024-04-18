@@ -4,10 +4,14 @@ import java.util.Random;
 
 public class Jatek {
     /* ADATTAGOK */
-    static Random rnd = new Random();
-    static final int MAX = 9;
+    private static Random rnd = new Random();
+    private static final int MAX = 9;
     
-    /* TAGFÜGGVÉNYEK */  
+    /* TAGFÜGGVÉNYEK */
+    public static int getMAX(){
+        return MAX;
+    }
+    
     /* Konstruktor
       - ua. neve, mint az osztálynak
       - nincs típusa, void sem
@@ -47,14 +51,22 @@ public class Jatek {
 
             /* a jatekos1 KÉTSZER tippel: */
             //System.out.print("1. játékos tippje: " + jatekos1.tippel());//ha int tippel()
-
-            System.out.println("1. játékos tippje: " + jatekos1.tipp);
-            System.out.println("2. játékos tippje: " + jatekos2.tipp);
-            System.out.println("3. játékos tippje: " + jatekos3.tipp);
+            
+            //System.out.println("1. játékos tippje: " + jatekos1.tipp);
+            //System.out.println("2. játékos tippje: " + jatekos2.tipp);
+            //System.out.println("3. játékos tippje: " + jatekos3.tipp);
         
-            tipp1Jo = jatekos1.tipp == szam;
-            tipp2Jo = jatekos2.tipp == szam;
-            tipp3Jo = jatekos3.tipp == szam;
+            int tipp1 = jatekos1.getTipp();
+            int tipp2 = jatekos2.getTipp();
+            int tipp3 = jatekos3.getTipp();
+            
+            System.out.println("1. játékos tippje: " + tipp1);
+            System.out.println("2. játékos tippje: " + tipp2);
+            System.out.println("3. játékos tippje: " + tipp3);
+            
+            tipp1Jo = tipp1 == szam;
+            tipp2Jo = tipp2 == szam;
+            tipp3Jo = tipp3 == szam;
             vanNyertes = tipp1Jo || tipp2Jo || tipp3Jo;
             if(!vanNyertes){
                 System.out.println("a játékosok újra próbálkoznak!");

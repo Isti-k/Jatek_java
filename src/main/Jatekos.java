@@ -8,8 +8,14 @@ public class Jatekos {
     int tipp;
     
     /* TAGFÜGGVÉNYEK */
+    public int getTipp(){
+        return tipp;
+    }
+    
+    
     void tippel(){
-        tipp = Jatekos.rnd.nextInt(Jatek.MAX+1);
+        // A privát miatt nem elérhető  a final MAX
+        tipp = Jatekos.rnd.nextInt(Jatek.getMAX()+1);
         System.out.println("tippelésem: " + tipp);
     }
 }
